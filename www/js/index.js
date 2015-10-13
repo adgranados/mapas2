@@ -70,7 +70,9 @@ var app = {
                 dataType: "json",
                 type: "GET",
                 success: function(data) {
-                        $( ".result" ).html( data );
+                    $( ".result" ).html( data );
+                },error: function (request, status, error) {
+                    alert(request.responseText);
                 }
             });
         }
