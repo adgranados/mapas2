@@ -45,40 +45,5 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-
-
-        var options = { timeout: 30000 };
-
-        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-
-
-        // onSuccess Geolocation
-        function onSuccess(position) {
-            var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                                'Longitude: ' + position.coords.longitude     + '<br />' +
-                                '<hr />'      + element.innerHTML;
-            $.support.cors = true;
-            
-            var json_params = {
-                LAT:position.coords.latitude,
-                LON:position.coords.longitude 
-            }
-            $.ajax({
-                url: "http://www.danielgranados.net/osm/putmarkert.php", // localhost/mismontanasapp
-                data: json_params,
-                dataType: "jsonp",
-                type: "GET",
-                success: function(data) {
-                        $( ".result" ).html( data );
-                }
-            });
-        }
-
-        // onError Callback receives a PositionError object
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
-        }
     }
 };
