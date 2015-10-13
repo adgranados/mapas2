@@ -67,7 +67,7 @@ var app = {
             $.ajax({
                 url: "http://www.danielgranados.net/osm/putmarkert.php", // localhost/mismontanasapp
                 data: json_params,
-                dataType: "jsonp",
+                dataType: "json",
                 type: "GET",
                 success: function(data) {
                         $( ".result" ).html( data );
