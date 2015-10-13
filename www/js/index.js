@@ -72,7 +72,7 @@ var app = {
                 success: function(data) {
                     $( ".result" ).html( data );
                 },error: function (request, status, error) {
-                    alert(request.responseText);
+                    alert(request.status);
                 }
             });
         }
